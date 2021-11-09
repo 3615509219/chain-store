@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.SpeicalDeviceTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.SpeicalDeviceTb">
+        <id column="speical_device_ID" property="speicalDeviceId" />
+        <result column="speical_device" property="speicalDevice" />
+        <result column="speical_device_vendor" property="speicalDeviceVendor" />
+        <result column="speical_device_IP_addr" property="speicalDeviceIpAddr" />
+        <result column="speical_device_model" property="speicalDeviceModel" />
+        <result column="speical_device_length" property="speicalDeviceLength" />
+        <result column="speical_device_width" property="speicalDeviceWidth" />
+        <result column="speical_device_height" property="speicalDeviceHeight" />
+        <result column="speical_device_Max_length" property="speicalDeviceMaxLength" />
+        <result column="speical_device_Max_width" property="speicalDeviceMaxWidth" />
+        <result column="speical_device_Max_height" property="speicalDeviceMaxHeight" />
+        <result column="speical_device_acc" property="speicalDeviceAcc" />
+        <result column="speical_device_weight" property="speicalDeviceWeight" />
+        <result column="speical_device_shipping_date" property="speicalDeviceShippingDate" />
+        <result column="speical_device_warranty" property="speicalDeviceWarranty" />
+        <result column="speical_device_status_Runing_idle_maintance" property="speicalDeviceStatusRuningIdleMaintance" />
+        <result column="speical_device_using_start_date" property="speicalDeviceUsingStartDate" />
+        <result column="speical_device_maintance_plan_date" property="speicalDeviceMaintancePlanDate" />
+    </resultMap>
+
+</mapper>

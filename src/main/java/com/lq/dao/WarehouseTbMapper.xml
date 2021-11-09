@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.WarehouseTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.WarehouseTb">
+        <id column="warehouse_Id" property="warehouseId" />
+        <result column="warehouse_pn" property="warehousePn" />
+        <result column="manufacture_ID" property="manufactureId" />
+        <result column="category" property="category" />
+        <result column="warehouse_name" property="warehouseName" />
+        <result column="warehouse_describe" property="warehouseDescribe" />
+        <result column="warehouse_number" property="warehouseNumber" />
+        <result column="manufacturer" property="manufacturer" />
+        <result column="storage_time" property="storageTime" />
+        <result column="date_of_manufacture" property="dateOfManufacture" />
+        <result column="colour" property="colour" />
+        <result column="texture" property="texture" />
+        <result column="density" property="density" />
+        <result column="accuracy" property="accuracy" />
+        <result column="particle_size" property="particleSize" />
+        <result column="size" property="size" />
+        <result column="equipment_model" property="equipmentModel" />
+        <result column="img_addr" property="imgAddr" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+</mapper>

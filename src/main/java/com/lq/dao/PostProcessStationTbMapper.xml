@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PostProcessStationTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PostProcessStationTb">
+        <id column="post_device_ID" property="postDeviceId" />
+        <result column="post_device" property="postDevice" />
+        <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+        <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+        <result column="post_process_begining_date_time" property="postProcessBeginingDateTime" />
+        <result column="post_process_estimate_end_date_time" property="postProcessEstimateEndDateTime" />
+        <result column="post_process_actual_end_date_time" property="postProcessActualEndDateTime" />
+    </resultMap>
+
+</mapper>

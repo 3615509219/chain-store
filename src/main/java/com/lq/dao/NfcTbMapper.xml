@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.NfcTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.NfcTb">
+        <id column="nfc_Id" property="nfcId" />
+        <result column="nfc_url" property="nfcUrl" />
+        <result column="nfc_pwd" property="nfcPwd" />
+        <result column="product_Id" property="productId" />
+        <result column="purchase_order_product_name" property="purchaseOrderProductName" />
+        <result column="nfc_scan" property="nfcScan" />
+        <result column="date" property="date" />
+        <result column="nfc_img_url" property="nfcImgUrl" />
+        <result column="nfc_word" property="nfcWord" />
+    </resultMap>
+</mapper>

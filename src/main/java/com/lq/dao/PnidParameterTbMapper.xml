@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PnidParameterTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PnidParameterTb">
+        <id column="PNID_parameter_ID" property="pnidParameterId" />
+        <result column="purchase_order_product_name" property="purchaseOrderProductName" />
+        <result column="product_length" property="productLength" />
+        <result column="product_width" property="productWidth" />
+        <result column="product_height" property="productHeight" />
+        <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+        <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+        <result column="product_pn_ID_begining_datetime" property="productPnIdBeginingDatetime" />
+        <result column="product_pn_ID_end_datetime" property="productPnIdEndDatetime" />
+        <result column="product_pn_ID_completed_percent_datetime" property="productPnIdCompletedPercentDatetime" />
+        <result column="product_pn_ID_material_using_units" property="productPnIdMaterialUsingUnits" />
+        <result column="product_pn_ID_black_agent_using_units" property="productPnIdBlackAgentUsingUnits" />
+        <result column="product_pn_ID_yellow_agent_using_units" property="productPnIdYellowAgentUsingUnits" />
+        <result column="product_pn_ID_detailing_agent_using_units" property="productPnIdDetailingAgentUsingUnits" />
+        <result column="product_pn_ID_fusing_agent_using_units" property="productPnIdFusingAgentUsingUnits" />
+        <result column="product_pn_ID_bright_fusing_agent_using_units" property="productPnIdBrightFusingAgentUsingUnits" />
+        <result column="product_pn_ID_magenta_agent_using_units" property="productPnIdMagentaAgentUsingUnits" />
+        <result column="product_pn_ID_cyan_agent_using_units" property="productPnIdCyanAgentUsingUnits" />
+        <result column="product_pn_ID_end_tem" property="productPnIdEndTem" />
+        <result column="product_pn_ID_end_hum" property="productPnIdEndHum" />
+        <result column="product_pn_ID_acc" property="productPnIdAcc" />
+        <result column="product_pn_ID_color" property="productPnIdColor" />
+        <result column="product_pn_ID_cold_start_time" property="productPnIdColdStartTime" />
+        <result column="product_pn_ID_cold_end_time" property="productPnIdColdEndTime" />
+    </resultMap>
+
+</mapper>

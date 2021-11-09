@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.CustomOrderTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.CustomOrderTb">
+        <id column="custom_order_Id" property="customOrderId" />
+        <result column="purchase_order_number" property="purchaseOrderNumber" />
+        <result column="purchase_order_from" property="purchaseOrderFrom" />
+        <result column="purchase_order_customer_contact_window" property="purchaseOrderCustomerContactWindow" />
+        <result column="purchase_order_customer_contact_window_phone" property="purchaseOrderCustomerContactWindowPhone" />
+        <result column="purchase_order_customer_shipping_addr" property="purchaseOrderCustomerShippingAddr" />
+        <result column="purchase_order_customer_shipping_addr_contact_window" property="purchaseOrderCustomerShippingAddrContactWindow" />
+        <result column="purchase_order_customer_shipping_addr_contact_window_phone" property="purchaseOrderCustomerShippingAddrContactWindowPhone" />
+        <result column="purchase_order_customer_order_date" property="purchaseOrderCustomerOrderDate" />
+        <result column="purchase_order_sales_names" property="purchaseOrderSalesNames" />
+        <result column="purchase_order_sales_phone" property="purchaseOrderSalesPhone" />
+        <result column="order_header" property="orderHeader" />
+        <result column="account_Id" property="accountId" />
+        <result column="advance_charge" property="advanceCharge" />
+        <result column="purchase_order_ID_total_price" property="purchaseOrderIdTotalPrice" />
+        <result column="confirmation_time" property="confirmationTime" />
+        <result column="pay_time" property="payTime" />
+        <result column="order_type" property="orderType" />
+        <result column="remarks" property="remarks" />
+        <result column="status" property="status" />
+        <result column="deal" property="deal" />
+        <result column="total_points" property="totalPoints" />
+        <result column="yuan_ding" property="yuanDing" />
+        <result column="coupon_Id" property="couponId" />
+        <result column="coupon" property="coupon" />
+        <result column="cow_much_coupon" property="cowMuchCoupon" />
+        <result column="mo_xing" property="moXing" />
+        <collection property="customOrderUploadTb" ofType="com.lq.pojo.CustomOrderUploadTb">
+            <id column="custom_order_upload_Id" property="customOrderUploadId" />
+            <result column="custom_order_Id" property="customOrderId" />
+            <result column="account_Id" property="accountId" />
+            <result column="custom_order_upload_addr" property="customOrderUploadAddr" />
+            <result column="custom_order_upload_name" property="customOrderUploadName" />
+            <result column="custom_order_upload_describe" property="customOrderUploadDescribe" />
+        </collection>
+        <collection property="productTb" ofType="com.lq.pojo.ProductTb">
+            <id column="product_Id" property="productId" />
+            <result column="purchase_order_number" property="purchaseOrderNumber" />
+            <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+            <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+            <result column="purchase_order_product_name" property="purchaseOrderProductName" />
+            <result column="purchase_order_product_total_qty" property="purchaseOrderProductTotalQty" />
+            <result column="printer_model_request_customer" property="printerModelRequestCustomer" />
+            <result column="factory_material_name" property="factoryMaterialName" />
+            <result column="color_request_customer" property="colorRequestCustomer" />
+            <result column="product_length_request_customer" property="productLengthRequestCustomer" />
+            <result column="product_width_request_customer" property="productWidthRequestCustomer" />
+            <result column="product_height_request_customer" property="productHeightRequestCustomer" />
+            <result column="product_acc_request_customer" property="productAccRequestCustomer" />
+            <result column="product_weight_request_customer" property="productWeightRequestCustomer" />
+            <result column="factory_material_PN" property="factoryMaterialPn" />
+            <result column="shop_addr" property="shopAddr" />
+            <result column="home_addr" property="homeAddr" />
+            <result column="upload_addr" property="uploadAddr" />
+            <result column="description" property="description"/>
+            <result column="diy_comment" property="diyComment" />
+            <result column="download_addr" property="downloadAddr" />
+            <result column="logistic_name" property="logisticName" />
+            <result column="logistic" property="logistic" />
+            <result column="logistic_time" property="logisticTime"/>
+            <result column="price" property="price" />
+            <result column="customer_cart_ID" property="customerCartID" />
+            <result column="shou_hou" property="shouHou" />
+        </collection>
+    </resultMap>
+    <select id="CustomOrderDetails" resultMap="BaseResultMap">
+        select * from custom_order_tb c join product_tb p
+        on c.purchase_order_number = p.purchase_order_number
+        join custom_order_upload_tb co
+        on c.custom_order_Id = co.custom_order_Id
+        where c.purchase_order_number = #{purchaseOrderNumber,jdbcType=VARCHAR}
+    </select>
+    <select id="weiWanCheng" resultMap="BaseResultMap">
+        select * from custom_order_tb c join product_tb p
+        on c.purchase_order_number = p.purchase_order_number
+        join custom_order_upload_tb co
+        on c.custom_order_Id = co.custom_order_Id
+        where p.logistic is  null and c.order_type = '支付完成' and c.account_Id = #{accountId,jdbcType=INTEGER}
+    </select>
+    <select id="yiWanCheng" resultMap="BaseResultMap">
+        select * from custom_order_tb c join product_tb p
+        on c.purchase_order_number = p.purchase_order_number
+        join custom_order_upload_tb co
+        on c.custom_order_Id = co.custom_order_Id
+        where p.logistic is not null and c.order_type = '支付完成' and c.account_Id = #{accountId,jdbcType=INTEGER}
+    </select>
+    <select id="pendingPaymentConfirmed" resultMap="BaseResultMap">
+        select * from custom_order_tb co join custom_order_upload_tb cu
+        on co.custom_order_Id = cu.custom_order_Id
+        where co.account_Id = #{accountId,jdbcType=INTEGER} and co.order_type = #{orderType,jdbcType=VARCHAR} and co.deal = #{deal,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAccount" resultMap="BaseResultMap">
+        select * from custom_order_tb co join custom_order_upload_tb cu
+        on co.custom_order_Id = cu.custom_order_Id
+        where co.deal = '待确认' and co.account_Id = #{accountId,jdbcType=INTEGER}
+    </select>
+    <select id="customizationNotCompleted" resultMap="BaseResultMap">
+        select * from custom_order_tb c join product_tb p
+        on c.purchase_order_number = p.purchase_order_number
+        where p.logistic is null and c.order_type = '支付完成'
+    </select>
+    <select id="customizationCompleted" resultMap="BaseResultMap">
+        select * from custom_order_tb c join product_tb p
+        on c.purchase_order_number = p.purchase_order_number
+        where p.logistic is not null and c.order_type = '支付完成'
+    </select>
+</mapper>

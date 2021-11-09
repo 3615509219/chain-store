@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PnidEstimateParameterTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PnidEstimateParameterTb">
+        <id column="PNID_estimate_parameter_ID" property="pnidEstimateParameterId" />
+        <result column="purchase_order_product_name" property="purchaseOrderProductName" />
+        <result column="product_estimate_length" property="productEstimateLength" />
+        <result column="product_estimate_width" property="productEstimateWidth" />
+        <result column="product_estimate_height" property="productEstimateHeight" />
+        <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+        <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+        <result column="product_pn_ID_estimate_end_datetime" property="productPnIdEstimateEndDatetime" />
+        <result column="product_pn_ID_material_estimate_units" property="productPnIdMaterialEstimateUnits" />
+        <result column="product_pn_ID_black_agent_estimate_units" property="productPnIdBlackAgentEstimateUnits" />
+        <result column="product_pn_ID_yellow_agent_estimate_units" property="productPnIdYellowAgentEstimateUnits" />
+        <result column="product_pn_ID_detailing_agent_estimate_units" property="productPnIdDetailingAgentEstimateUnits" />
+        <result column="product_pn_ID_fusing_agent_estimate_units" property="productPnIdFusingAgentEstimateUnits" />
+        <result column="product_pn_ID_bright_fusing_agent_estimate_units" property="productPnIdBrightFusingAgentEstimateUnits" />
+        <result column="product_pn_ID_magenta_agent_estimate_units" property="productPnIdMagentaAgentEstimateUnits" />
+        <result column="product_pn_ID_cyan_agent_estimate_units" property="productPnIdCyanAgentEstimateUnits" />
+        <result column="product_pn_ID_start_tem" property="productPnIdStartTem" />
+        <result column="product_pn_ID_start_hum" property="productPnIdStartHum" />
+        <result column="product_pn_ID_estimate_acc" property="productPnIdEstimateAcc" />
+        <result column="product_pn_ID_estimate_color" property="productPnIdEstimateColor" />
+        <result column="product_pn_ID_cold_estimate_start_time" property="productPnIdColdEstimateStartTime" />
+        <result column="product_pn_ID_cold_estimate_end_time" property="productPnIdColdEstimateEndTime" />
+    </resultMap>
+
+</mapper>

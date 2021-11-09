@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PersonRegisterTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PersonRegisterTb">
+        <id column="account_ID" property="accountId" />
+        <result column="account_Code" property="accountCode" />
+        <result column="state" property="state" />
+        <result column="city" property="city" />
+        <result column="account_name" property="accountName" />
+        <result column="buyer_person" property="buyerPerson" />
+        <result column="buyer_company_name" property="buyerCompanyName" />
+        <result column="buyer_company_tax_number" property="buyerCompanyTaxNumber" />
+        <result column="phone_number" property="phoneNumber" />
+        <result column="email_addr" property="emailAddr" />
+        <result column="account_points" property="accountPoints" />
+        <result column="person_register_date" property="personRegisterDate" />
+        <result column="call_service" property="callService" />
+        <result column="person_open_id" property="personOpenId" />
+        <result column="quan_xian" property="quanXian"/>
+    </resultMap>
+    <update id="updatePerson" parameterType="com.lq.pojo.PersonRegisterTb">
+        update person_register_tb
+        <set>
+            <if test="phoneNumber != null">
+                phone_number = #{phoneNumber,jdbcType=VARCHAR}
+            </if>
+            <if test="emailAddr != null">
+                email_addr = #{emailAddr,jdbcType=VARCHAR}
+            </if>
+            <if test="callService != null">
+                call_service = #{callService,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where person_open_id = #{personOpenId,jdbcType=VARCHAR}
+    </update>
+</mapper>

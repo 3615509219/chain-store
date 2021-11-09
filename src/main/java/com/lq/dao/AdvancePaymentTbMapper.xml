@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.AdvancePaymentTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.AdvancePaymentTb">
+        <id column="advance_payment_Id" property="advancePaymentId" />
+        <result column="advance_payment_order" property="advancePaymentOrder" />
+        <result column="order_header" property="orderHeader" />
+        <result column="account_Id" property="accountId" />
+        <result column="purchase_order_number" property="purchaseOrderNumber" />
+        <result column="price" property="price" />
+        <result column="deal" property="deal" />
+        <result column="advance_payment_date" property="advancePaymentDate" />
+        <result column="call_back_date" property="CallBackDate" />
+        <collection property="customOrderTb" ofType="com.lq.pojo.CustomOrderTb">
+            <id column="custom_order_Id" property="customOrderId" />
+            <result column="purchase_order_number" property="purchaseOrderNumber" />
+            <result column="purchase_order_from" property="purchaseOrderFrom" />
+            <result column="purchase_order_customer_contact_window" property="purchaseOrderCustomerContactWindow" />
+            <result column="purchase_order_customer_contact_window_phone" property="purchaseOrderCustomerContactWindowPhone" />
+            <result column="purchase_order_customer_shipping_addr" property="purchaseOrderCustomerShippingAddr" />
+            <result column="purchase_order_customer_shipping_addr_contact_window" property="purchaseOrderCustomerShippingAddrContactWindow" />
+            <result column="purchase_order_customer_shipping_addr_contact_window_phone" property="purchaseOrderCustomerShippingAddrContactWindowPhone" />
+            <result column="purchase_order_customer_order_date" property="purchaseOrderCustomerOrderDate" />
+            <result column="purchase_order_sales_names" property="purchaseOrderSalesNames" />
+            <result column="purchase_order_sales_phone" property="purchaseOrderSalesPhone" />
+            <result column="order_header" property="orderHeader" />
+            <result column="account_Id" property="accountId" />
+            <result column="advance_charge" property="advanceCharge" />
+            <result column="purchase_order_ID_total_price" property="purchaseOrderIdTotalPrice" />
+            <result column="confirmation_time" property="confirmationTime" />
+            <result column="pay_time" property="payTime" />
+            <result column="order_type" property="orderType" />
+            <result column="remarks" property="remarks" />
+            <result column="status" property="status" />
+            <result column="deal" property="deal" />
+            <result column="total_points" property="totalPoints" />
+            <result column="yuan_ding" property="yuanDing" />
+            <result column="coupon_Id" property="couponId" />
+            <result column="coupon" property="coupon" />
+            <result column="cow_much_coupon" property="cowMuchCoupon" />
+            <result column="mo_xing" property="moXing" />
+        </collection>
+        <collection property="customOrderUploadTb" ofType="com.lq.pojo.CustomOrderUploadTb">
+            <id column="custom_order_upload_Id" property="customOrderUploadId" />
+            <result column="custom_order_Id" property="customOrderId" />
+            <result column="account_Id" property="accountId" />
+            <result column="custom_order_upload_addr" property="customOrderUploadAddr" />
+            <result column="custom_order_upload_name" property="customOrderUploadName" />
+            <result column="custom_order_upload_describe" property="customOrderUploadDescribe" />
+        </collection>
+    </resultMap>
+    <select id="yufukuan" resultMap="BaseResultMap">
+        select * from advance_payment_tb a join custom_order_tb c
+        on a.purchase_order_number = c.purchase_order_number
+        join custom_order_upload_tb co
+        on c.custom_order_Id = co.custom_order_Id
+        where a.advance_payment_order = #{advancePaymentOrder,jdbcType=VARCHAR}
+    </select>
+    <select id="PrepaidHospitalityPaymentAccountId" resultMap="BaseResultMap">
+        select * from advance_payment_tb a join custom_order_tb c
+        on a.purchase_order_number = c.purchase_order_number
+        join custom_order_upload_tb co
+        on c.custom_order_Id = co.custom_order_Id
+        where a.deal = #{deal,jdbcType=VARCHAR} and a.account_Id = #{accountId,jdbcType=INTEGER}
+    </select>
+    <resultMap id="BaseResultMap1" type="com.lq.pojo.AdvancePaymentTb">
+    <id column="advance_payment_Id" property="advancePaymentId" />
+    <result column="advance_payment_order" property="advancePaymentOrder" />
+    <result column="order_header" property="orderHeader" />
+    <result column="account_Id" property="accountId" />
+    <result column="purchase_order_number" property="purchaseOrderNumber" />
+    <result column="price" property="price" />
+    <result column="deal" property="deal" />
+    <result column="advance_payment_date" property="advancePaymentDate" />
+    <result column="call_back_date" property="CallBackDate" />
+    <collection property="customOrderTb" ofType="com.lq.pojo.CustomOrderTb">
+        <id column="custom_order_Id" property="customOrderId" />
+        <result column="purchase_order_number" property="purchaseOrderNumber" />
+        <result column="purchase_order_from" property="purchaseOrderFrom" />
+        <result column="purchase_order_customer_contact_window" property="purchaseOrderCustomerContactWindow" />
+        <result column="purchase_order_customer_contact_window_phone" property="purchaseOrderCustomerContactWindowPhone" />
+        <result column="purchase_order_customer_shipping_addr" property="purchaseOrderCustomerShippingAddr" />
+        <result column="purchase_order_customer_shipping_addr_contact_window" property="purchaseOrderCustomerShippingAddrContactWindow" />
+        <result column="purchase_order_customer_shipping_addr_contact_window_phone" property="purchaseOrderCustomerShippingAddrContactWindowPhone" />
+        <result column="purchase_order_customer_order_date" property="purchaseOrderCustomerOrderDate" />
+        <result column="purchase_order_sales_names" property="purchaseOrderSalesNames" />
+        <result column="purchase_order_sales_phone" property="purchaseOrderSalesPhone" />
+        <result column="order_header" property="orderHeader" />
+        <result column="account_Id" property="accountId" />
+        <result column="advance_charge" property="advanceCharge" />
+        <result column="purchase_order_ID_total_price" property="purchaseOrderIdTotalPrice" />
+        <result column="confirmation_time" property="confirmationTime" />
+        <result column="pay_time" property="payTime" />
+        <result column="order_type" property="orderType" />
+        <result column="remarks" property="remarks" />
+        <result column="status" property="status" />
+        <result column="deal" property="deal" />
+        <result column="total_points" property="totalPoints" />
+        <result column="yuan_ding" property="yuanDing" />
+        <result column="coupon_Id" property="couponId" />
+        <result column="coupon" property="coupon" />
+        <result column="cow_much_coupon" property="cowMuchCoupon" />
+        <result column="mo_xing" property="moXing" />
+    </collection>
+    </resultMap>
+    <select id="daiQueRenWu" resultMap="BaseResultMap1">
+        select * from custom_order_tb co join advance_payment_tb a
+        on co.purchase_order_number = a.purchase_order_number
+        where co.deal = '待确认' and co.mo_xing = '无'
+    </select>
+    <resultMap id="BaseResultMap5" type="com.lq.pojo.AdvancePaymentTb">
+        <id column="advance_payment_Id" property="advancePaymentId" />
+        <result column="advance_payment_order" property="advancePaymentOrder" />
+        <result column="order_header" property="orderHeader" />
+        <result column="account_Id" property="accountId" />
+        <result column="purchase_order_number" property="purchaseOrderNumber" />
+        <result column="price" property="price" />
+        <result column="deal" property="deal" />
+        <result column="advance_payment_date" property="advancePaymentDate" />
+        <result column="call_back_date" property="CallBackDate" />
+    </resultMap>
+    <select id="pppp" resultMap="BaseResultMap5">
+        select * from advance_payment_tb where advance_payment_Id = #{Id,jdbcType=INTEGER}
+    </select>
+</mapper>

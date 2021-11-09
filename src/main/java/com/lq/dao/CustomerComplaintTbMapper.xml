@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.CustomerComplaintTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.CustomerComplaintTb">
+        <id column="complaint_id" property="complaintId" />
+        <result column="account_Code" property="accountCode" />
+        <result column="purchase_order_number" property="purchaseOrderNumber" />
+        <result column="complaint_category" property="complaintCategory" />
+        <result column="complaint_date" property="complaintDate" />
+        <result column="complaint_content" property="complaintContent" />
+    </resultMap>
+
+</mapper>

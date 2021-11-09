@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.WorkOrderTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.WorkOrderTb">
+        <id column="work_order_ID" property="workOrderId" />
+        <result column="work_order" property="workOrder" />
+        <result column="work_order_product_total_qty" property="workOrderProductTotalQty" />
+        <result column="work_order_contact_window" property="workOrderContactWindow" />
+        <result column="work_order_contact_window_phone" property="workOrderContactWindowPhone" />
+        <result column="work_order_tech_contact_window" property="workOrderTechContactWindow" />
+        <result column="work_order_tech_contact_window_phone" property="workOrderTechContactWindowPhone" />
+        <result column="work_order_open_date" property="workOrderOpenDate" />
+        <result column="work_order_close_date" property="workOrderCloseDate" />
+        <result column="work_order_estimate_end_date" property="workOrderEstimateEndDate" />
+        <result column="work_order_shipping_mins_target_date" property="workOrderShippingMinsTargetDate" />
+        <result column="manufacture_ID" property="manufactureId" />
+        <result column="work_order_ID_total_price" property="workOrderIdTotalPrice" />
+        <result column="printer_ID_material_PN" property="printerIdMaterialPn" />
+        <result column="black_agent_PN" property="blackAgentPn" />
+        <result column="yellow_agent_PN" property="yellowAgentPn" />
+        <result column="detailing_agent_PN" property="detailingAgentPn" />
+        <result column="fusing_agent_PN" property="fusingAgentPn" />
+        <result column="bright_fusing_agent_PN" property="brightFusingAgentPn" />
+        <result column="magenta_agent_PN" property="magentaAgentPn" />
+        <result column="cyan_agent_PN" property="cyanAgentPn" />
+        <result column="package_box_PN" property="packageBoxPn" />
+    </resultMap>
+
+</mapper>

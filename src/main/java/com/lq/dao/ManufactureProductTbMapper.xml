@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.ManufactureProductTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.ManufactureProductTb">
+        <id column="product_Id" property="productId" />
+        <result column="product_pn" property="productPn" />
+        <result column="category" property="category" />
+        <result column="product_name" property="productName" />
+        <result column="product_describe" property="productDescribe" />
+        <result column="manufacturer" property="manufacturer" />
+        <result column="colour" property="colour" />
+        <result column="texture" property="texture" />
+        <result column="density" property="density" />
+        <result column="accuracy" property="accuracy" />
+        <result column="particle_size" property="particleSize" />
+        <result column="size" property="size" />
+        <result column="img_addr" property="imgAddr" />
+        <result column="remarks" property="remarks" />
+        <result column="selling_price" property="sellingPrice" />
+        <result column="factory_Po" property="factoryPo" />
+    </resultMap>
+
+</mapper>

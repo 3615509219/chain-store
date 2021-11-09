@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.135.22.134:3306/Chainstore?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true
+    username: root
+    password: 'Lianqikeji_2018'
+  servlet:
+    multipart:
+      max-file-size: 250MB
+      max-request-size: 250MB
+#  freemarker:
+#    template-loader-path: classpath:/templates/
+#    cache: false
+#    charset: UTF-8
+#    check-template-location: true
+#    content-type: text/html; charset=utf-8
+#    expose-request-attributes: true
+#    expose-session-attributes: true
+#    request-context-attribute: request
+

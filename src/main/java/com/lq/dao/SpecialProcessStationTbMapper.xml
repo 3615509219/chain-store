@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.SpecialProcessStationTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.SpecialProcessStationTb">
+        <id column="speical_device_ID" property="speicalDeviceId" />
+        <result column="speical_device" property="speicalDevice" />
+        <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+        <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+        <result column="special_process_begining_date_time" property="specialProcessBeginingDateTime" />
+        <result column="special_process_estimate_end_date_time" property="specialProcessEstimateEndDateTime" />
+        <result column="special_process_actual_end_date_time" property="specialProcessActualEndDateTime" />
+    </resultMap>
+
+</mapper>

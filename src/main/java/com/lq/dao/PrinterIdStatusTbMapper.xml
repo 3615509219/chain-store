@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PrinterIdStatusTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PrinterIdStatusTb">
+        <id column="printer_ID" property="printerId" />
+        <result column="printer" property="printer" />
+        <result column="printer_status_Runing_idle_maintance" property="printerStatusRuningIdleMaintance" />
+        <result column="printer_using_start_date" property="printerUsingStartDate" />
+        <result column="printer_maintance_plan_date" property="printerMaintancePlanDate" />
+        <result column="rest_material_units" property="restMaterialUnits" />
+        <result column="rest_black_agent_units" property="restBlackAgentUnits" />
+        <result column="rest_yellow_agent_units" property="restYellowAgentUnits" />
+        <result column="rest_detailing_agent_units" property="restDetailingAgentUnits" />
+        <result column="rest_fusing_agent_units" property="restFusingAgentUnits" />
+        <result column="rest_bright_fusing_agent_units" property="restBrightFusingAgentUnits" />
+        <result column="rest_magenta_agent_units" property="restMagentaAgentUnits" />
+        <result column="rest_cyan_agent_units" property="restCyanAgentUnits" />
+        <result column="factory_material_PN" property="factoryMaterialPn" />
+    </resultMap>
+
+</mapper>

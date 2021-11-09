@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PrinterTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PrinterTb">
+        <id column="printer_ID" property="printerId" />
+        <result column="printer" property="printer" />
+        <result column="printer_vendor" property="printerVendor" />
+        <result column="printer_IP_addr" property="printerIpAddr" />
+        <result column="printer_model" property="printerModel" />
+        <result column="printer_length" property="printerLength" />
+        <result column="printer_width" property="printerWidth" />
+        <result column="printer_height" property="printerHeight" />
+        <result column="printer_Max_length" property="printerMaxLength" />
+        <result column="printer_Max_width" property="printerMaxWidth" />
+        <result column="printer_Max_height" property="printerMaxHeight" />
+        <result column="printer_Color" property="printerColor" />
+        <result column="printer_acc" property="printerAcc" />
+        <result column="printer_shipping_date" property="printerShippingDate" />
+        <result column="printer_warranty" property="printerWarranty" />
+        <result column="printer_weight" property="printerWeight" />
+    </resultMap>
+
+</mapper>

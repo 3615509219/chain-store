@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.HistoryCartTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.HistoryCartTb">
+        <id column="history_cart_Id" property="historyCartId" />
+        <result column="account_ID" property="accountId" />
+        <result column="finished_goods_name" property="finishedGoodsName" />
+        <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+        <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+        <result column="finished_goods_description" property="finishedGoodsDescription" />
+        <result column="finished_goods_qty" property="finishedGoodsQty" />
+        <result column="finished_goods_cart_date" property="finishedGoodsCartDate" />
+        <result column="unit_price" property="unitPrice" />
+        <result column="upload_addr" property="uploadAddr" />
+        <result column="comment" property="comment" />
+        <result column="purchase_order" property="purchaseOrder" />
+        <result column="order_open_time" property="orderOpenTime" />
+        <result column="order_close_time" property="orderCloseTime" />
+        <result column="logistic_number" property="logisticNumber" />
+        <result column="get_points" property="getPoints" />
+        <result column="pay_time" property="payTime" />
+        <result column="receiver" property="receiver" />
+        <result column="shipping_addr" property="shippingAddr" />
+        <result column="receiver_phone" property="receiverPhone" />
+    </resultMap>
+
+</mapper>

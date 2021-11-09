@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.ReceiverTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.ReceiverTb">
+        <id column="receiver_ID" property="receiverId" />
+        <result column="account_ID" property="accountId" />
+        <result column="receiver_name" property="receiverName" />
+        <result column="receiver_phone" property="receiverPhone" />
+        <result column="receiver_addr" property="receiverAddr" />
+        <result column="details_addr" property="detailsAddr" />
+    </resultMap>
+    <update id="updateRegisterTb" parameterType="com.lq.pojo.ReceiverTb">
+        update receiver_tb
+        <set>
+            <if test="receiverName != null">
+                receiver_name = #{receiverName,jdbcType=VARCHAR}
+            </if>
+            <if test="receiverPhone != null">
+                ,receiver_phone = #{receiverPhone,jdbcType=VARCHAR}
+            </if>
+            <if test="receiverAddr != null">
+                ,receiver_addr = #{receiverAddr,jdbcType=VARCHAR}
+            </if>
+            <if test="detailsAddr != null">
+                ,details_addr = #{detailsAddr,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where receiver_ID = #{receiverId,jdbcType=INTEGER}
+    </update>
+
+</mapper>

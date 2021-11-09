@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.CustomOrderUploadTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.CustomOrderUploadTb">
+        <id column="custom_order_upload_Id" property="customOrderUploadId" />
+        <result column="custom_order_Id" property="customOrderId" />
+        <result column="account_Id" property="accountId" />
+        <result column="custom_order_upload_addr" property="customOrderUploadAddr" />
+        <result column="custom_order_upload_name" property="customOrderUploadName" />
+        <result column="custom_order_upload_describe" property="customOrderUploadDescribe" />
+    </resultMap>
+
+</mapper>

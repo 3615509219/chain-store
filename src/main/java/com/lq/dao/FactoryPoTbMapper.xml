@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.FactoryPoTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.FactoryPoTb">
+        <id column="factory_Po_Id" property="factoryPoId" />
+        <result column="factory_Po" property="factoryPo" />
+        <result column="factory_name" property="factoryName" />
+        <result column="factory_time" property="factoryTime" />
+        <result column="factory_price" property="factoryPrice" />
+        <result column="consignee" property="consignee" />
+        <result column="telephone" property="telephone" />
+        <result column="address_of_consignee" property="addressOfConsignee" />
+        <result column="pay_time" property="payTime" />
+        <result column="order_status" property="orderStatus" />
+        <result column="logistic" property="logistic" />
+    </resultMap>
+
+</mapper>

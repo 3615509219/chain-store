@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.ManufactureRegisterTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.ManufactureRegisterTb">
+        <id column="manufacture_ID" property="manufactureId" />
+        <result column="manufacture_code" property="manufactureCode" />
+        <result column="manufacture_state" property="manufactureState" />
+        <result column="manufacture_city" property="manufactureCity" />
+        <result column="manufacture_name" property="manufactureName" />
+        <result column="manufacture_tax" property="manufactureTax" />
+        <result column="manufacture_wx_name" property="manufactureWxName" />
+        <result column="manufacture_contact_window" property="manufactureContactWindow" />
+        <result column="manufacture_contact_window_phone" property="manufactureContactWindowPhone" />
+        <result column="manufacture_contact_window_email" property="manufactureContactWindowEmail" />
+        <result column="manufacture_points" property="manufacturePoints" />
+        <result column="manufacture_bank_number" property="manufactureBankNumber" />
+        <result column="manufacture_bank" property="manufactureBank" />
+        <result column="manufacture_register_date" property="manufactureRegisterDate" />
+        <result column="manufacture_open_id" property="manufactureOpenId"/>
+    </resultMap>
+    <update id="updateManufacture" parameterType="com.lq.pojo.ManufactureRegisterTb">
+        update manufacture_register_tb
+        <set>
+            <if test="manufactureContactWindowPhone != null">
+                manufacture_contact_window_phone = #{manufactureContactWindowPhone,jdbcType=VARCHAR}
+            </if>
+            <if test="manufactureContactWindowEmail != null">
+                manufacture_contact_window_email = #{manufactureContactWindowEmail,jdbcType=VARCHAR}
+            </if>
+            <if test="manufactureBank != null">
+                manufacture_bank = #{manufactureBank,jdbcType=VARCHAR}
+            </if>
+            <if test="manufactureBankNumber != null">
+                manufacture_bank_number = #{manufactureBankNumber,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where manufacture_open_id = #{manufactureOpenId,jdbcType=VARCHAR}
+    </update>
+</mapper>

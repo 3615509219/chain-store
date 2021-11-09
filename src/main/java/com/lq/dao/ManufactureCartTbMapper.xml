@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.ManufactureCartTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.ManufactureCartTb">
+        <id column="manufacture_cart_Id" property="manufactureCartId" />
+        <result column="shop_Id" property="shopId" />
+        <result column="shop_pn" property="shopPn" />
+        <result column="manufacture_ID" property="manufactureId" />
+        <result column="shop_name" property="shopName" />
+        <result column="category" property="category" />
+        <result column="shop_describe" property="shopDescribe" />
+        <result column="img_addr" property="imgAddr" />
+        <result column="remarks" property="remarks" />
+        <result column="selling_price" property="sellingPrice" />
+        <result column="number" property="number" />
+        <result column="time" property="time" />
+        <result column="status" property="status" />
+    </resultMap>
+
+</mapper>

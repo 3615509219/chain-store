@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.AccessoryTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.AccessoryTb">
+        <id column="accessory_PN" property="accessoryPn" />
+        <result column="accessory_name" property="accessoryName" />
+        <result column="accessory_description" property="accessoryDescription" />
+        <result column="accessory_supplier" property="accessorySupplier" />
+        <result column="sell_accessory_unit_price" property="sellAccessoryUnitPrice" />
+        <result column="purchase_accessory_unit_price" property="purchaseAccessoryUnitPrice" />
+    </resultMap>
+
+</mapper>

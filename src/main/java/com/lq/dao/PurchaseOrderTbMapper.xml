@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PurchaseOrderTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PurchaseOrderTb">
+        <id column="purchase_order_number_ID" property="purchaseOrderNumberId" />
+        <result column="purchase_order_number" property="purchaseOrderNumber" />
+        <result column="purchase_order_from" property="purchaseOrderFrom" />
+        <result column="purchase_order_customer_contact_window" property="purchaseOrderCustomerContactWindow" />
+        <result column="purchase_order_customer_contact_window_phone" property="purchaseOrderCustomerContactWindowPhone" />
+        <result column="purchase_order_customer_shipping_addr" property="purchaseOrderCustomerShippingAddr" />
+        <result column="purchase_order_customer_shipping_addr_contact_window" property="purchaseOrderCustomerShippingAddrContactWindow" />
+        <result column="purchase_order_customer_shipping_addr_contact_window_phone" property="purchaseOrderCustomerShippingAddrContactWindowPhone" />
+        <result column="purchase_order_customer_order_date" property="purchaseOrderCustomerOrderDate" />
+        <result column="purchase_order_sales_names" property="purchaseOrderSalesNames" />
+        <result column="purchase_order_sales_phone" property="purchaseOrderSalesPhone" />
+        <result column="Account_ID" property="accountId" />
+        <result column="purchase_order_ID_total_price" property="purchaseOrderIdTotalPrice" />
+        <result column="order_header" property="orderHeader" />
+        <result column="pay_time" property="payTime" />
+        <result column="order_type" property="orderType" />
+    </resultMap>
+</mapper>

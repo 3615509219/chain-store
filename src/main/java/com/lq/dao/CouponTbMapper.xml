@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.CouponTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.CouponTb">
+        <id column="coupon_Id" property="couponId" />
+        <result column="account_Id" property="accountId" />
+        <result column="coupon_price" property="couponPrice" />
+        <result column="bz" property="bz" />
+        <result column="startTime" property="start_time" />
+        <result column="endTime" property="end_time" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.ManufactureReceiverTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.ManufactureReceiverTb">
+        <id column="manufacture_receiver_ID" property="manufactureReceiverId" />
+        <result column="manufacture_ID" property="manufactureId" />
+        <result column="manufacture_receiver_name" property="manufactureReceiverName" />
+        <result column="manufacture_receiver_phone" property="manufactureReceiverPhone" />
+        <result column="manufacture_receiver_addr" property="manufactureReceiverAddr" />
+        <result column="manufacture_details_addr" property="manufactureDetailsAddr"/>
+    </resultMap>
+    <update id="updateManufactureRegisterTb" parameterType="com.lq.pojo.ManufactureReceiverTb">
+        update manufacture_receiver_tb
+        <set>
+            <if test="manufactureReceiverName != null">
+                manufacture_receiver_name = #{manufactureReceiverName,jdbcType=VARCHAR}
+            </if>
+            <if test="manufactureReceiverPhone != null">
+                ,manufacture_receiver_phone = #{manufactureReceiverPhone,jdbcType=VARCHAR}
+            </if>
+            <if test="manufactureReceiverAddr != null">
+                ,manufacture_receiver_addr = #{manufactureReceiverAddr,jdbcType=VARCHAR}
+            </if>
+            <if test="manufactureDetailsAddr != null">
+                ,manufacture_details_addr = #{manufactureDetailsAddr,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where manufacture_receiver_ID = #{manufactureReceiverId,jdbcType=INTEGER}
+    </update>
+
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.CustomerCartTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.CustomerCartTb">
+        <id column="customer_cart_ID" property="customerCartId" />
+        <result column="account_ID" property="accountId" />
+        <result column="finished_goods_name" property="finishedGoodsName" />
+        <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+        <result column="finished_goods_list_sub_ID" property="finishedGoodsListSubId" />
+        <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+        <result column="finished_goods_description" property="finishedGoodsDescription" />
+        <result column="finished_goods_qty" property="finishedGoodsQty" />
+        <result column="finished_goods_cart_date" property="finishedGoodsCartDate" />
+        <result column="finished_goods_status" property="finishedGoodsStatus" />
+        <result column="unit_price" property="unitPrice" />
+        <result column="img_addr" property="imgAddr" />
+        <result column="comment" property="comment" />
+        <result column="select_status" property="selectStatus" />
+        <result column="integral" property="integral" />
+        <result column="jf" property="jf" />
+        <result column="bz" property="bz" />
+        <collection property="cartImgTb" ofType="com.lq.pojo.CartImgTb" javaType="java.util.List">
+            <result column="customer_cart_ID" property="customerCartId" />
+            <result column="cart_img" property="cartImg" />
+            <result column="comment_bz" property="commentBz" />
+        </collection>
+    </resultMap>
+    <select id="selectCart" resultMap="BaseResultMap">
+        select * from customer_cart_tb cc
+        join cart_img_tb ci
+        on cc.customer_cart_ID = ci.customer_cart_ID
+        where cc.account_ID = #{accountId,jdbcType=INTEGER}
+        and cc.finished_goods_status = 0
+        order by cc.finished_goods_cart_date desc
+    </select>
+    <select id="getAccountCart" resultMap="BaseResultMap">
+        select * from customer_cart_tb cc
+        join cart_img_tb ci
+        on cc.customer_cart_ID = ci.customer_cart_ID
+        where cc.select_status = 1 and cc.finished_goods_status = 0 and cc.account_ID = ${accountId}
+    </select>
+
+    <select id="getStatus" resultMap="BaseResultMap">
+        select ci.* from customer_cart_tb cc
+        join cart_img_tb ci
+        on cc.customer_cart_ID = ci.customer_cart_ID
+        where cc.account_ID = #{accountId,jdbcType=INTEGER}
+        and cc.finished_goods_status = 0
+        and cc.select_status = 1
+        order by cc.customer_cart_ID desc
+    </select>
+</mapper>

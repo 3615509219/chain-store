@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.PointsTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.PointsTb">
+        <id column="points_Id" property="pointsId" />
+        <result column="account_ID" property="accountId" />
+        <result column="name" property="name" />
+        <result column="points" property="points" />
+        <result column="bank_name" property="bankName" />
+        <result column="card_Id" property="cardId" />
+        <result column="card_name" property="cardName" />
+        <result column="province" property="province" />
+        <result column="city" property="city" />
+        <result column="tel" property="tel" />
+    </resultMap>
+
+</mapper>

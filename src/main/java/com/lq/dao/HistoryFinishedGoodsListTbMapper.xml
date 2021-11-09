@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lq.dao.HistoryFinishedGoodsListTbMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lq.pojo.HistoryFinishedGoodsListTb">
+        <result column="purchase_order_product_pn_ID" property="purchaseOrderProductPnId" />
+        <result column="finished_goods_name" property="finishedGoodsName" />
+        <result column="purchase_order_product_pn" property="purchaseOrderProductPn" />
+        <result column="finished_goods_description" property="finishedGoodsDescription" />
+        <result column="finished_goods_length" property="finishedGoodsLength" />
+        <result column="finished_goods_width" property="finishedGoodsWidth" />
+        <result column="finished_goods_height" property="finishedGoodsHeight" />
+        <result column="finished_goods_acc" property="finishedGoodsAcc" />
+        <result column="finished_goods_weight" property="finishedGoodsWeight" />
+        <result column="finished_goods_texture" property="finishedGoodsTexture" />
+        <result column="finished_goods_certificatioin" property="finishedGoodsCertificatioin" />
+        <result column="finished_goods_print_times" property="finishedGoodsPrintTimes" />
+        <result column="finished_goods_patent" property="finishedGoodsPatent" />
+        <result column="finished_goods_patent_number" property="finishedGoodsPatentNumber" />
+        <result column="account_ID" property="accountId" />
+        <result column="manufacture_ID" property="manufactureId" />
+        <result column="finished_goods_issue_datetime" property="finishedGoodsIssueDatetime" />
+        <result column="finished_goods_customer_priced" property="finishedGoodsCustomerPriced" />
+        <result column="finished_goods_manufacture_price" property="finishedGoodsManufacturePrice" />
+        <result column="home_page_addr" property="homePageAddr" />
+        <result column="drawing_files_addr" property="drawingFilesAddr" />
+        <result column="factory_material_PN" property="factoryMaterialPn" />
+        <result column="finished_goods_color" property="finishedGoodsColor" />
+        <result column="finished_goods_category" property="finishedGoodsCategory" />
+        <result column="finished_goods_volume" property="finishedGoodsVolume" />
+        <result column="finished_goods_print_time" property="finishedGoodsPrintTime" />
+        <result column="printer_model_request_customer" property="printerModelRequestCustomer" />
+        <result column="diy" property="diy" />
+    </resultMap>
+
+</mapper>
