@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public class Text {
     public static void main(String[] args) {
 
+        System.out.println("卧槽");
         System.out.println("高开茂你真帅");
         URL url = null;
         URLConnection urlconn = null;
