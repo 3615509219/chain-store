@@ -77,6 +77,7 @@ public class HistoryFinishedGoodsListTbServiceImpl extends ServiceImpl<HistoryFi
         historyFinishedGoodsListTb.setBz(byId.getBz());
         historyFinishedGoodsListTb.setNumImg(byId.getNumImg());
         historyFinishedGoodsListTb.setImgBz(byId.getImgBz());
+        historyFinishedGoodsListTb.setPopupImg(byId.getPopupImg());
         categoryTbMapper.delCategory(purchaseOrderProductPnId);
         historyFinishedGoodsListTbService.save(historyFinishedGoodsListTb);
         finishedGoodsListTbService.removeById(purchaseOrderProductPnId);
@@ -117,6 +118,7 @@ public class HistoryFinishedGoodsListTbServiceImpl extends ServiceImpl<HistoryFi
         finishedGoodsListTb.setBz(s.getBz());
         finishedGoodsListTb.setNumImg(s.getNumImg());
         finishedGoodsListTb.setImgBz(s.getImgBz());
+        finishedGoodsListTb.setPopupImg(s.getPopupImg());
         finishedGoodsListTbService.save(finishedGoodsListTb);
         historyFinishedGoodsListTbMapper.del(purchaseOrderProductPnId);
         offTheShelfTbService.removeById(id);
