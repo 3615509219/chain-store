@@ -45,7 +45,7 @@ public interface FinishedGoodsListTbService extends IService<FinishedGoodsListTb
                          String finishedGoodsTexture,String finishedGoodsCertificatioin,Integer finishedGoodsPrintTimes,
                          Double finishedGoodsCustomerPriced,Double finishedGoodsManufacturePrice,String factoryMaterialPn,
                          String finishedGoodsColor,String finishedGoodsCategory,Double finishedGoodsVolume,Integer finishedGoodsPrintTime,
-                         String printerModelRequestCustomer,Integer diy,Integer uploadId,Integer bz,Integer numImg,String imgBz);
+                         String printerModelRequestCustomer,Integer diy,Integer uploadId,Integer bz,Integer numImg,String imgBz,@RequestParam(value = "file1",required = false) MultipartFile multipartFile1);
 
     //修改商城文档
     void updateUploadFinished(@RequestParam(value = "file",required = false) MultipartFile multipartFile,Integer purchaseOrderProductPnId);
@@ -59,4 +59,13 @@ public interface FinishedGoodsListTbService extends IService<FinishedGoodsListTb
 
     //修改优先级
     void updateBz (Integer purchaseOrderProductPnId,Integer bz);
+
+    //添加弹窗图片
+    void addPopup (Integer purchaseOrderProductPnId,@RequestParam(value = "file",required = false) MultipartFile multipartFile);
+
+    //修改弹窗图片
+    void updatePopup (Integer purchaseOrderProductPnId,@RequestParam(value = "file",required = false) MultipartFile multipartFile);
+
+    //查询弹窗图片
+    String selectPopup (Integer purchaseOrderProductPnId);
 }

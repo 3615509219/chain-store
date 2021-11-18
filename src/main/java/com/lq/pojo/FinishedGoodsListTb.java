@@ -89,6 +89,8 @@ public class FinishedGoodsListTb implements Serializable {
 
     private String imgBz;
 
+    private String PopupImg;
+
     public String getHomePageAddr() {
         return homePageAddr;
     }

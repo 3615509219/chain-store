@@ -107,12 +107,12 @@ public class FinishedGoodsListTbController {
                                String finishedGoodsTexture, String finishedGoodsCertificatioin, Integer finishedGoodsPrintTimes,
                                Double finishedGoodsCustomerPriced, Double finishedGoodsManufacturePrice, String factoryMaterialPn,
                                String finishedGoodsColor, String finishedGoodsCategory, Double finishedGoodsVolume,
-                               Integer finishedGoodsPrintTime, String printerModelRequestCustomer, Integer diy, Integer uploadId,Integer bz,Integer numImg,String imgBz) {
+                               Integer finishedGoodsPrintTime, String printerModelRequestCustomer, Integer diy, Integer uploadId,Integer bz,Integer numImg,String imgBz,@RequestParam(value = "file1",required = false) MultipartFile multipartFile1) {
         return finishedGoodsListTbService.insertFinished(multipartFile, finishedGoodsName, purchaseOrderProductPn, finishedGoodsDescription,
                 finishedGoodsLength, finishedGoodsWidth, finishedGoodsHeight, finishedGoodsAcc, finishedGoodsWeight, finishedGoodsTexture,
                 finishedGoodsCertificatioin, finishedGoodsPrintTimes, finishedGoodsCustomerPriced, finishedGoodsManufacturePrice,
                 factoryMaterialPn, finishedGoodsColor, finishedGoodsCategory, finishedGoodsVolume, finishedGoodsPrintTime,
-                printerModelRequestCustomer, diy, uploadId,bz,numImg,imgBz);
+                printerModelRequestCustomer, diy, uploadId,bz,numImg,imgBz,multipartFile1);
     }
 
     //修改商城数据
@@ -181,6 +181,20 @@ public class FinishedGoodsListTbController {
         map.put("weight", weight);
         map.put("weight1", weight1);
         return map;
+    }
+
+    //添加和修改弹窗图片
+    @PostMapping("addPopupS")
+    @ResponseBody
+    public void addPopupS (@RequestParam(value = "file", required = false)MultipartFile multipartFile, Integer purchaseOrderProductPnId){
+        finishedGoodsListTbService.addPopup(purchaseOrderProductPnId, multipartFile);
+    }
+
+    //查看弹窗图片
+    @GetMapping("selectPopupS")
+    @ResponseBody
+    public String selectPopupS (Integer purchaseOrderProductPnId){
+        return finishedGoodsListTbService.selectPopup(purchaseOrderProductPnId);
     }
 }
 

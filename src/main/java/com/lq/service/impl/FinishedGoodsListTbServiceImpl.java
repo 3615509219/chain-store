@@ -104,13 +104,14 @@ public class FinishedGoodsListTbServiceImpl extends ServiceImpl<FinishedGoodsLis
                                String finishedGoodsTexture, String finishedGoodsCertificatioin, Integer finishedGoodsPrintTimes,
                                Double finishedGoodsCustomerPriced, Double finishedGoodsManufacturePrice, String factoryMaterialPn,
                                String finishedGoodsColor, String finishedGoodsCategory, Double finishedGoodsVolume,
-                               Integer finishedGoodsPrintTime, String printerModelRequestCustomer, Integer diy,Integer uploadId,Integer bz,Integer numImg,String imgBz) {
+                               Integer finishedGoodsPrintTime, String printerModelRequestCustomer, Integer diy,Integer uploadId,Integer bz,Integer numImg,String imgBz,@RequestParam(value = "file1",required = false) MultipartFile multipartFile1) {
         Date time = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         UploadTb uploads = uploadTbMapper.upload(uploadId);
         FinishedGoodsListTb finishedGoodsListTb = new FinishedGoodsListTb();
         try {
             String photoPath = dealFile.getPhotoPath(multipartFile);
+            String photoPath1 = dealFile.getPhotoPath(multipartFile1);
             finishedGoodsListTb.setFinishedGoodsName(finishedGoodsName);
             finishedGoodsListTb.setPurchaseOrderProductPn(purchaseOrderProductPn);
             finishedGoodsListTb.setFinishedGoodsDescription(finishedGoodsDescription);
@@ -146,6 +147,7 @@ public class FinishedGoodsListTbServiceImpl extends ServiceImpl<FinishedGoodsLis
             finishedGoodsListTb.setBz(bz);
             finishedGoodsListTb.setNumImg(numImg);
             finishedGoodsListTb.setImgBz(imgBz);
+            finishedGoodsListTb.setPopupImg(photoPath1);
             finishedGoodsListTbService.save(finishedGoodsListTb);
             uploadTbMapper.updateStatus(uploadId);
         } catch (Exception e) {
@@ -184,5 +186,28 @@ public class FinishedGoodsListTbServiceImpl extends ServiceImpl<FinishedGoodsLis
     @Override
     public void updateBz(Integer purchaseOrderProductPnId, Integer bz) {
         finishedGoodsListTbMapper.updateBz(purchaseOrderProductPnId, bz);
+    }
+
+    //增加和修改弹窗图片
+    @Override
+    public void addPopup(Integer purchaseOrderProductPnId, MultipartFile multipartFile) {
+        try {
+            String photoPath = dealFile.getPhotoPath(multipartFile);
+            finishedGoodsListTbMapper.updatePopupImg(photoPath,purchaseOrderProductPnId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //修改弹窗图片
+    @Override
+    public void updatePopup(Integer purchaseOrderProductPnId, MultipartFile multipartFile) {
+
+    }
+    //查看弹窗图片
+    @Override
+    public String selectPopup(Integer purchaseOrderProductPnId) {
+        String s = finishedGoodsListTbMapper.selectPopupImg(purchaseOrderProductPnId);
+        return s;
     }
 }

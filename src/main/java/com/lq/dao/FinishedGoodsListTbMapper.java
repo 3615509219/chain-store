@@ -92,4 +92,10 @@ public interface FinishedGoodsListTbMapper extends BaseMapper<FinishedGoodsListT
     @Select("select purchase_order_product_pn from finished_goods_list_tb")
     List<FinishedGoodsListTb> pn ();
 
+    @Update("update finished_goods_list_tb set popup_img = '{popupImg}' where purchase_order_product_pn_ID = ${purchaseOrderProductPnId}")
+    void updatePopupImg (String popupImg,Integer purchaseOrderProductPnId);
+
+    @Select("select popup_img from finished_goods_list_tb where purchase_order_product_pn_ID = ${purchaseOrderProductPnId}")
+    String selectPopupImg (Integer purchaseOrderProductPnId);
+
 }
