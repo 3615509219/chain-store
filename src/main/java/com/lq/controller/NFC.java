@@ -1,6 +1,8 @@
 package com.lq.controller;
 
+import com.lq.dao.NfcNumberTbMapper;
 import com.lq.dao.NfcTbMapper;
+import com.lq.pojo.NfcNumberTb;
 import com.lq.pojo.NfcTb;
 import com.lq.service.NfcTbService;
 import com.lq.utils.DealFile;
@@ -23,11 +25,28 @@ public class NFC {
     private NfcTbService nfcTbService;
     @Resource
     private NfcTbMapper nfcTbMapper;
+    @Resource
+    private NfcNumberTbMapper nfcNumberTbMapper;
 
 
     @RequestMapping("/l")
     public String index(String url,Model model) {
+        Date time = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        NfcNumberTb n = new NfcNumberTb();
         NfcTb nfctb = nfcTbMapper.nfctb(url);
+        NfcNumberTb nfcNumberTb = nfcNumberTbMapper.nfcNumber(nfctb.getNfcId());
+        if (nfcNumberTb == null){
+            n.setNfcId(nfctb.getNfcId());
+            n.setNfcNumber(1);
+            n.setNfcNumberTime(df.format(time));
+            nfcNumberTbMapper.insert(n);
+        }else{
+            n.setNfcId(nfctb.getNfcId());
+            n.setNfcNumber(nfcNumberTb.getNfcNumber()+1);
+            n.setNfcNumberTime(df.format(time));
+            nfcNumberTbMapper.insert(n);
+        }
         model.addAttribute("ImgUrl",nfctb.getNfcImgUrl());
         model.addAttribute("NfcWord",nfctb.getNfcWord());
         model.addAttribute("url",url);
@@ -112,5 +131,12 @@ public class NFC {
     @ResponseBody
     public void updNfc (Integer nfcId,String nfcPwd){
         nfcTbMapper.updPwd(nfcId,nfcPwd);
+    }
+    //查询当前nfc扫描的次数
+    @GetMapping("selectNfcNumber")
+    @ResponseBody
+    public NfcNumberTb selectNfcNumber (Integer nfcId){
+        NfcNumberTb nfcNumberTb = nfcNumberTbMapper.nfcNumberTb(nfcId);
+        return nfcNumberTb;
     }
 }

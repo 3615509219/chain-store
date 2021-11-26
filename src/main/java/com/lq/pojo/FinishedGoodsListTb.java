@@ -91,6 +91,8 @@ public class FinishedGoodsListTb implements Serializable {
 
     private String PopupImg;
 
+    private Integer numberOfVisits;
+
     public String getHomePageAddr() {
         return homePageAddr;
     }

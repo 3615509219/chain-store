@@ -54,7 +54,7 @@ class CodeGeneration {
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);      // 表名生成策略
-        strategy.setInclude(new String[]{"advance_payment_tb"});
+        strategy.setInclude(new String[]{"home_img_tb"});
         strategy.setSuperMapperClass(null);
         autoGenerator.setStrategy(strategy);
 

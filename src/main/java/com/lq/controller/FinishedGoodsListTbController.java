@@ -196,5 +196,13 @@ public class FinishedGoodsListTbController {
     public String selectPopupS (Integer purchaseOrderProductPnId){
         return finishedGoodsListTbService.selectPopup(purchaseOrderProductPnId);
     }
+
+    //访问次数
+    @PostMapping("numberOfVisitsS")
+    @ResponseBody
+    public void numberOfVisitsS (Integer purchaseOrderProductPnId){
+        int i = finishedGoodsListTbMapper.numberOfVisits(purchaseOrderProductPnId);
+        finishedGoodsListTbMapper.updateNumber(i+1,purchaseOrderProductPnId);
+    }
 }
 

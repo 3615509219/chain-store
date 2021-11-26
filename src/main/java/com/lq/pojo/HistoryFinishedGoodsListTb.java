@@ -86,6 +86,8 @@ public class HistoryFinishedGoodsListTb implements Serializable {
 
     private String popupImg;
 
+    private Integer numberOfVisits;
+
 
     public Integer getPurchaseOrderProductPnId() {
         return purchaseOrderProductPnId;

@@ -148,6 +148,7 @@ public class FinishedGoodsListTbServiceImpl extends ServiceImpl<FinishedGoodsLis
             finishedGoodsListTb.setNumImg(numImg);
             finishedGoodsListTb.setImgBz(imgBz);
             finishedGoodsListTb.setPopupImg(photoPath1);
+            finishedGoodsListTb.setNumberOfVisits(0);
             finishedGoodsListTbService.save(finishedGoodsListTb);
             uploadTbMapper.updateStatus(uploadId);
         } catch (Exception e) {
@@ -210,4 +211,7 @@ public class FinishedGoodsListTbServiceImpl extends ServiceImpl<FinishedGoodsLis
         String s = finishedGoodsListTbMapper.selectPopupImg(purchaseOrderProductPnId);
         return s;
     }
+
+
+
 }
